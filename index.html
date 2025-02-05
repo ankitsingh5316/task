@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager SPA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Task Manager</h1>
+      <nav>
+        <button onclick="navigateTo('task-list')">Task List</button>
+        <button onclick="navigateTo('add-task')">Add Task</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Task List View -->
+      <div id="task-list" class="view">
+        <h2>Task List</h2>
+        <input type="text" id="search" placeholder="Search tasks..." oninput="filterTasks()">
+        <ul id="tasks"></ul>
+      </div>
+
+      <!-- Add Task View -->
+      <div id="add-task" class="view" style="display: none;">
+        <h2>Add Task</h2>
+        <form id="add-task-form">
+          <label for="title">Title:</label>
+          <input type="text" id="title" required>
+          <label for="description">Description:</label>
+          <textarea id="description" required></textarea>
+          <label for="due-date">Due Date:</label>
+          <input type="date" id="due-date" required>
+          <button type="submit">Add Task</button>
+        </form>
+      </div>
+
+      <!-- Task Detail View -->
+      <div id="task-detail" class="view" style="display: none;">
+        <h2>Task Details</h2>
+        <p><strong>Title:</strong> <span id="detail-title"></span></p>
+        <p><strong>Description:</strong> <span id="detail-description"></span></p>
+        <p><strong>Due Date:</strong> <span id="detail-due-date"></span></p>
+        <button onclick="navigateTo('task-list')">Back to List</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
